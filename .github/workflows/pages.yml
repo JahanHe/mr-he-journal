@@ -1,0 +1,118 @@
+name: Publish personal journal
+
+on:
+  push:
+    branches: [main]
+    paths: [docs/index.html, docs/sources.json, .github/workflows/pages.yml]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout public files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+          sparse-checkout: |
+            docs/index.html
+            docs/sources.json
+          sparse-checkout-cone-mode: false
+      - name: Validate and stage reviewed editions
+        id: public
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const assert = require('node:assert/strict');
+          const { execFileSync } = require('node:child_process');
+          const files = ['index.html', 'sources.json'];
+          for (const file of files) assert(fs.lstatSync(`docs/${file}`).isFile(), `Not a regular file: ${file}`);
+          const keys = (value, allowed) => {
+            assert(value && typeof value === 'object' && !Array.isArray(value));
+            assert(Object.keys(value).every(key => allowed.includes(key)), 'Unexpected data field');
+          };
+          const text = (value, max = 4000) => assert(typeof value === 'string' && value.trim() && [...value].length <= max, 'Invalid text');
+          const texts = (value, max = 4000) => { assert(Array.isArray(value) && value.length); value.forEach(item => text(item, max)); };
+          const https = value => { const url = new URL(value); assert(url.protocol === 'https:' && !url.username && !url.password, 'Invalid public URL'); };
+          const date = value => { assert(/^\d{4}-\d{2}-\d{2}$/.test(value)); assert(new Date(value).toISOString().slice(0, 10) === value); };
+          const data = JSON.parse(fs.readFileSync('docs/sources.json', 'utf8'));
+          keys(data, ['schema_version', 'editions']);
+          assert.equal(data.schema_version, 1);
+          assert(Array.isArray(data.editions) && data.editions.length);
+          const dates = new Set();
+          for (const edition of data.editions) {
+            keys(edition, ['date', 'review_date', 'title', 'intro', 'quote', 'weather', 'yesterday', 'today', 'publication', 'sources', 'items']);
+            date(edition.date); date(edition.review_date);
+            assert(!dates.has(edition.date), 'Duplicate edition date'); dates.add(edition.date);
+            assert.equal(Date.parse(edition.date) - Date.parse(edition.review_date), 86400000, 'Review must cover yesterday');
+            text(edition.title); texts(edition.intro); texts(edition.yesterday);
+            keys(edition.quote, ['text', 'attribution']); text(edition.quote.text); text(edition.quote.attribution);
+            keys(edition.today, ['text', 'note']); text(edition.today.text); text(edition.today.note);
+            keys(edition.weather, ['text', 'url', 'checked_at']); text(edition.weather.text, 30); https(edition.weather.url); assert(Number.isFinite(Date.parse(edition.weather.checked_at)));
+            keys(edition.publication, ['visibility', 'sanitized', 'approved', 'approved_at']);
+            // ponytail: explicit human review is required; schema checks cannot establish privacy or factual accuracy.
+            assert.equal(edition.publication.visibility, 'public');
+            assert.equal(edition.publication.sanitized, true); assert.equal(edition.publication.approved, true);
+            assert(Number.isFinite(Date.parse(edition.publication.approved_at)));
+            keys(edition.sources, Object.keys(edition.sources));
+            for (const source of Object.values(edition.sources)) {
+              keys(source, ['title', 'label', 'type', 'date', 'url', 'paragraphs', 'notice']);
+              text(source.title); text(source.label); text(source.type);
+              if (source.date !== undefined) date(source.date);
+              if (source.notice !== undefined) text(source.notice);
+              assert(Boolean(source.url) !== Boolean(source.paragraphs), 'Source needs either a public URL or a reviewed excerpt');
+              if (source.url) https(source.url); else texts(source.paragraphs);
+            }
+            assert(Array.isArray(edition.items) && edition.items.length === 10, 'Each edition requires ten items');
+            const ids = new Set(); const titles = new Set();
+            for (const item of edition.items) {
+              keys(item, ['id', 'category', 'title', 'summary', 'sources', 'paragraphs', 'note']);
+              assert(/^\d{2}$/.test(item.id) && !ids.has(item.id)); ids.add(item.id);
+              text(item.category); text(item.title); assert(!titles.has(item.title)); titles.add(item.title);
+              text(item.summary, 100); texts(item.paragraphs, 240); text(item.note);
+              assert(Array.isArray(item.sources) && item.sources.length);
+              for (const key of item.sources) assert(Object.hasOwn(edition.sources, key), 'Missing source');
+            }
+          }
+          // ponytail: keep every published date; same-date corrections remain possible and Git preserves prior text.
+          const git = args => execFileSync('git', args, { encoding: 'utf8' }).trim();
+          const parent = git(['rev-list', '--parents', '-n', '1', 'HEAD']).split(/\s+/)[1];
+          if (parent && git(['ls-tree', '--name-only', parent, '--', 'docs/sources.json'])) {
+            const previous = JSON.parse(git(['show', `${parent}:docs/sources.json`]));
+            for (const edition of previous.editions) assert(dates.has(edition.date), `Published edition removed: ${edition.date}`);
+          }
+          const contents = files.map(file => fs.readFileSync(`docs/${file}`, 'utf8')).join('\n');
+          assert(!/(?:\/Users\/|127\.0\.0\.1|localhost|BEGIN [A-Z ]*PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,})/.test(contents), 'Private path, local URL or credential detected');
+          // ponytail: publish only these two explicit files, never the repository or an arbitrary docs directory.
+          const target = fs.mkdtempSync(path.join(process.env.RUNNER_TEMP, 'journal-public-'));
+          for (const file of files) fs.copyFileSync(`docs/${file}`, path.join(target, file));
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `path=${target}\n`);
+          console.log(`Validated ${data.editions.length} reviewed edition(s); staged exactly ${files.length} public files.`);
+          NODE
+      - name: Configure Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - name: Upload reviewed files only
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: ${{ steps.public.outputs.path }}
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

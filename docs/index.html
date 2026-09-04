@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'none'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>每日十条 · mr.he</title>
+  <style>
+    :root { color-scheme:light; --paper:#f6f5f0; --ink:#252923; --muted:#686c63; --line:#d9dcd0; --accent:#355c43; --wash:#eaf0e5; }
+    * { box-sizing:border-box }
+    html { scroll-padding-top:24px }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; -webkit-font-smoothing:antialiased }
+    a { color:inherit; text-decoration:none; text-underline-offset:4px }
+    a:hover { color:var(--accent); text-decoration:underline }
+    a:focus-visible,summary:focus-visible { outline:3px solid #9baf83; outline-offset:5px; border-radius:2px }
+    button,input { font:inherit }
+    [hidden] { display:none!important }
+    .frame { width:min(100% - 80px,1060px); margin:auto }
+    .masthead { padding:26px 0 19px; display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--ink) }
+    .brand { display:flex; align-items:baseline; gap:14px }
+    .wordmark { font:italic 600 36px Georgia,serif; letter-spacing:-2px }
+    .brand-note { font-size:11px; letter-spacing:3px; color:var(--muted) }
+    .privacy { font-size:11px; letter-spacing:1px; color:var(--muted) }
+    .mast-meta { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:13px 0; font-size:11px; color:var(--muted); letter-spacing:1px }
+    .weather { letter-spacing:0; font-size:12px }
+    .intro { padding:40px 0 34px; display:grid; grid-template-columns:1fr 260px; gap:54px; border-bottom:1px solid var(--line) }
+    .eyebrow { margin:0 0 14px; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-weight:600 }
+    h1 { margin:0; font-family:"Songti SC","Noto Serif CJK SC",SimSun,serif; font-size:50px; line-height:1.25; font-weight:600; letter-spacing:1px }
+    .intro-note { margin:18px 0 0; max-width:570px; color:var(--muted); font-size:13px; line-height:1.9 }
+    .quote { border-left:1px solid var(--line); padding:4px 0 0 24px; align-self:center }
+    .quote blockquote { margin:0; font-family:"Songti SC",SimSun,serif; font-size:18px; line-height:1.8 }
+    .quote cite { display:block; margin-top:11px; font-size:11px; color:var(--muted); font-style:normal }
+    .edition { display:grid; grid-template-columns:minmax(0,1fr) 215px; gap:60px; align-items:start; padding-top:32px }
+    .list-heading { display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding-bottom:12px; border-bottom:1px solid var(--ink) }
+    .list-heading h2 { font-size:13px; margin:0; letter-spacing:2px }
+    .list-heading span { font-size:11px; color:var(--muted) }
+    .insights { margin:0; padding:0; list-style:none }
+    .insight { padding:25px 0 23px; display:grid; grid-template-columns:38px minmax(0,1fr); gap:12px; border-bottom:1px solid var(--line) }
+    .number { font:italic 22px Georgia,serif; color:#8a9680; padding-top:2px }
+    .insight h3 { margin:0; font-size:18px; line-height:1.55; font-weight:600; letter-spacing:.2px }
+    .insight p { margin:9px 0 11px; font-size:14px; line-height:1.9; color:#555c51 }
+    .insight-links { display:flex; flex-wrap:wrap; align-items:center; gap:6px 16px; font-size:11px; line-height:1.8; color:var(--muted) }
+    .insight-links a { display:inline-flex; align-items:center; min-height:30px }
+    .insight-links .read { color:var(--accent); margin-left:auto; font-weight:600 }
+    .sidebar { padding-top:0 }
+    .side-section { margin-bottom:31px }
+    .side-title { border-bottom:1px solid var(--line); padding-bottom:13px; margin:0 0 15px; font-size:11px; letter-spacing:2px; font-weight:600 }
+    .side-section p { font-size:12px; line-height:1.95; color:var(--muted); margin:0 0 12px }
+    .today { background:var(--wash); padding:20px 18px; border-top:2px solid #6b805b }
+    .today h2 { margin:0 0 12px; font-size:12px; letter-spacing:1px }
+    .today p { color:#43543c }
+    .today small { color:#63725a; font-size:10px }
+    .stamp { font:italic 56px Georgia,serif; color:#c5cdbb; margin:36px 0 12px; letter-spacing:-3px }
+    .side-footer { font-size:10px!important; letter-spacing:1px }
+    footer { margin-top:44px; padding:20px 0 32px; border-top:1px solid var(--line); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; gap:12px }
+    .reader { max-width:740px; margin:30px auto 0; padding-bottom:35px }
+    .back { display:inline-flex; align-items:center; min-height:44px; font-size:12px; color:var(--accent); margin-bottom:28px }
+    .reader h1 { font-size:36px; line-height:1.5; letter-spacing:0; margin:0 0 16px }
+    .reader-meta { display:flex; flex-wrap:wrap; gap:8px 16px; color:var(--muted); font-size:11px; padding-bottom:24px; border-bottom:1px solid var(--line) }
+    .reader-body { padding:15px 0 10px; font-size:16px; line-height:2.05; overflow-wrap:anywhere }
+    .reader-body p { margin:20px 0 }
+    .reader-body h2 { margin:32px 0 12px; font-size:22px }
+    .reader-body h3 { margin:25px 0 10px; font-size:18px }
+    .reader-body h4 { margin:20px 0 8px; font-size:16px }
+    .standfirst { border-left:3px solid #82966d; padding:13px 18px; margin:28px 0 15px; background:var(--wash); color:#43543c; font-size:15px; line-height:1.9 }
+    .evidence { margin-top:30px; padding-top:22px; border-top:1px solid var(--line) }
+    .evidence h2 { font-size:12px; letter-spacing:2px; margin:0 0 12px }
+    .source-card { display:block; padding:15px 0; border-bottom:1px solid var(--line) }
+    .source-top { display:flex; justify-content:space-between; gap:16px; font-size:14px; line-height:1.8 }
+    .source-card small { display:block; margin-top:3px; font-size:11px; line-height:1.8; color:var(--muted) }
+    .reader-foot { margin-top:27px; display:flex; justify-content:space-between; gap:20px; font-size:12px; color:var(--accent) }
+    .source-notice { margin:22px 0 4px; padding:14px 17px; background:#efede4; font-size:12px; line-height:1.9; color:#6b654f }
+    details { margin-top:30px; border-top:1px solid var(--line); padding-top:18px }
+    summary { cursor:pointer; font-size:12px; min-height:36px }
+    pre { white-space:pre-wrap; overflow-wrap:anywhere; font:12px/1.9 ui-monospace,monospace; color:var(--muted) }
+    .load-error { margin:40px auto; color:#9a3426; font-size:14px; line-height:1.8 }
+    @media(max-width:780px) {
+      .frame { width:calc(100% - 40px) }
+      .masthead { padding-top:20px }
+      .wordmark { font-size:32px }
+      .brand-note { font-size:9px; letter-spacing:2px }
+      .privacy { font-size:9px; letter-spacing:0 }
+      .mast-meta { font-size:10px; align-items:flex-start; flex-direction:column; gap:8px }
+      .intro { grid-template-columns:1fr; padding:25px 0; gap:22px }
+      h1 { font-size:36px }
+      .intro-note { font-size:12px; line-height:1.9; margin-top:12px }
+      .quote { border-left:2px solid #a7b296; padding:0 0 0 16px; max-width:550px }
+      .quote .eyebrow { margin-bottom:8px; font-size:10px }
+      .quote blockquote { font-size:16px; line-height:1.8 }
+      .quote cite { margin-top:6px; font-size:10px }
+      .edition { grid-template-columns:1fr; gap:30px; padding-top:24px }
+      .sidebar { display:grid; grid-template-columns:1fr 1fr; gap:20px }
+      .side-section { margin:0 }
+      .side-end { display:none }
+      .insight { grid-template-columns:28px minmax(0,1fr); padding:21px 0; gap:10px }
+      .number { font-size:19px }
+      .insight h3 { font-size:17px }
+      .insight p { font-size:13px; line-height:1.9 }
+      .insight-links { gap:5px 12px }
+      .insight-links a { min-height:36px }
+      .reader { margin-top:16px }
+      .reader h1 { font-size:28px }
+      .reader-body { font-size:15px }
+      .back { margin-bottom:18px }
+      footer { font-size:10px; flex-wrap:wrap }
+    }
+    @media(max-width:420px) {
+      .frame { width:calc(100% - 32px) }
+      .brand-note { display:none }
+      .sidebar { grid-template-columns:1fr }
+      .insight-links .read { margin-left:0 }
+      .insight h3 { font-size:16px }
+      .reader h1 { font-size:26px }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto } }
+    @media print { .privacy,.back,.reader-foot { display:none } body { background:white } .frame { width:100% } a { text-decoration:none } }
+
+    .mast-actions { display:flex; align-items:center; flex-wrap:wrap; justify-content:flex-end; gap:8px 18px }
+    .archive-link { font-size:11px; color:var(--accent); min-height:32px; display:inline-flex; align-items:center }
+    .archive-list { list-style:none; margin:28px 0 0; padding:0 }
+    .archive-item { padding:23px 0; border-bottom:1px solid var(--line) }
+    .archive-item a { display:block; padding:3px 0 }
+    .archive-item h2 { font:600 24px/1.6 "Songti SC",SimSun,serif; margin:6px 0 10px }
+    .archive-item p { font-size:13px; line-height:1.8; color:var(--muted); margin:8px 0 0 }
+    .archive-date { color:var(--accent); font-size:12px }
+    .intro-note p { margin:0 }
+    .weather-wrap { display:flex; align-items:baseline; gap:6px 10px; flex-wrap:wrap }
+    .weather-label { font-size:10px; letter-spacing:0; color:var(--muted) }
+    .source-kind { font-size:11px; color:var(--muted) }
+    .loading { margin:40px 0; font-size:14px; color:var(--muted) }
+    @media(max-width:420px) { .mast-actions { gap:4px 10px } .privacy { font-size:9px } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="masthead">
+      <a class="brand" href="#home" aria-label="mr.he 最新一期"><span class="wordmark">mr.he</span><span class="brand-note">A PERSONAL JOURNAL</span></a>
+      <div class="mast-actions"><span class="privacy">公开版 · 已脱敏</span><a class="archive-link" href="#archive">往期杂志 ↗</a></div>
+    </header>
+    <div class="mast-meta"><span id="edition-meta">每日十条 · 按日期保存</span><div id="weather" class="weather-wrap"></div></div>
+    <p id="loading" class="loading" role="status">正在翻开杂志…</p>
+    <main id="home" hidden>
+      <section class="intro" aria-labelledby="edition-title">
+        <div><p class="eyebrow" id="edition-eyebrow"></p><h1 id="edition-title"></h1><div class="intro-note" id="edition-intro"></div></div>
+        <div class="quote"><p class="eyebrow">每日一句</p><blockquote id="edition-quote"></blockquote><cite id="quote-attribution"></cite></div>
+      </section>
+      <div class="edition">
+        <section aria-labelledby="list-title"><div class="list-heading"><h2 id="list-title">每日重点</h2><span>10 条观点 · 点击阅读全文</span></div><ol class="insights" id="insights"></ol></section>
+        <aside class="sidebar" aria-label="本期昨日与今天">
+          <section class="side-section"><h2 class="side-title">昨日小记</h2><div id="yesterday"></div></section>
+          <section class="side-section today"><h2>今天，可以做的一件事</h2><p id="today-text"></p><small id="today-note"></small></section>
+          <div class="side-end"><div class="stamp" id="edition-stamp"></div><p class="side-footer">有来处的观点，<br>才有机会长成自己的判断。</p></div>
+        </aside>
+      </div>
+    </main>
+    <main id="reader" class="reader" hidden tabindex="-1"></main>
+    <p id="load-error" class="load-error" role="alert" hidden></p>
+    <noscript><p class="load-error">请启用 JavaScript 阅读本期观点与历史杂志。</p></noscript>
+    <footer><span>mr.he / 个人观点手册</span><span>公开阅读 · 私人原文不随刊发布</span></footer>
+  </div>
+  <script>
+    'use strict';
+    const home = document.getElementById('home');
+    const reader = document.getElementById('reader');
+    const list = document.getElementById('insights');
+    const meta = document.getElementById('edition-meta');
+    const weather = document.getElementById('weather');
+    const errorBox = document.getElementById('load-error');
+    let editions = [];
+    let edition = null;
+    let lastArticle = null;
+    const homeScroll = new Map();
+    const el = (tag, text, className) => {
+      const node = document.createElement(tag);
+      if (text !== undefined) node.textContent = text;
+      if (className) node.className = className;
+      return node;
+    };
+    const httpsURL = value => {
+      const url = new URL(value);
+      if (url.protocol !== 'https:' || url.username || url.password) throw new Error('Unsupported public URL');
+      return url.href;
+    };
+    const link = (text, href, className) => {
+      const node = el('a', text, className);
+      node.href = href.startsWith('#') ? href : httpsURL(href);
+      if (!href.startsWith('#')) { node.target = '_blank'; node.rel = 'noopener noreferrer'; }
+      return node;
+    };
+    const issueHref = (date, kind, id) => '#issue/' + date + (kind ? '/' + kind + '/' + id : '');
+    const sourceHref = id => edition.sources[id].url || issueHref(edition.date, 'source', id);
+    const isDate = value => {
+      if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+      const parsed = new Date(value + 'T00:00:00Z');
+      return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+    };
+    const dateParts = date => date.split('-');
+    const shortDate = date => { const parts = dateParts(date); return Number(parts[1]) + ' 月 ' + Number(parts[2]) + ' 日'; };
+    const longDate = date => dateParts(date)[0] + ' 年 ' + shortDate(date);
+    const paragraphs = (container, values) => { container.replaceChildren(...values.map(text => el('p', text))); };
+    function validate(data) {
+      if (!data || data.schema_version !== 1 || !Array.isArray(data.editions) || !data.editions.length) throw new Error('No editions');
+      const dates = new Set();
+      const requireText = value => { if (typeof value !== 'string' || !value.trim()) throw new Error('Missing text'); };
+      const requireParagraphs = values => { if (!Array.isArray(values) || !values.length) throw new Error('Missing paragraphs'); values.forEach(requireText); };
+      data.editions.forEach(issue => {
+        if (!isDate(issue.date) || !isDate(issue.review_date) || dates.has(issue.date)) throw new Error('Invalid edition date');
+        dates.add(issue.date);
+        const publication = issue.publication;
+        if (!publication || publication.visibility !== 'public' || publication.sanitized !== true || publication.approved !== true) throw new Error('Not approved for publication');
+        requireText(publication.approved_at);
+        requireText(issue.title); requireParagraphs(issue.intro); requireParagraphs(issue.yesterday);
+        requireText(issue.quote.text); requireText(issue.quote.attribution);
+        requireText(issue.weather.text); httpsURL(issue.weather.url);
+        requireText(issue.today.text); requireText(issue.today.note);
+        if (!issue.sources || typeof issue.sources !== 'object' || Array.isArray(issue.sources)) throw new Error('Missing sources');
+        Object.entries(issue.sources).forEach(([id, source]) => {
+          if (!/^[a-z0-9-]+$/.test(id)) throw new Error('Invalid source ID');
+          requireText(source.title); requireText(source.label); requireText(source.type);
+          if (source.date && !isDate(source.date)) throw new Error('Invalid source date');
+          if (source.url) httpsURL(source.url);
+          else { requireParagraphs(source.paragraphs); requireText(source.notice); }
+        });
+        if (!Array.isArray(issue.items) || issue.items.length !== 10) throw new Error('Expected ten items');
+        const ids = new Set();
+        issue.items.forEach(item => {
+          if (!/^\d{2}$/.test(item.id) || ids.has(item.id)) throw new Error('Invalid item ID');
+          ids.add(item.id);
+          requireText(item.category); requireText(item.title); requireText(item.summary); requireText(item.note);
+          requireParagraphs(item.paragraphs);
+          if (!Array.isArray(item.sources) || !item.sources.length || item.sources.some(id => !Object.hasOwn(issue.sources, id))) throw new Error('Unknown source');
+        });
+      });
+      return [...data.editions].sort((a, b) => b.date.localeCompare(a.date));
+    }
+    function updateHeader(issue) {
+      weather.replaceChildren();
+      weather.removeAttribute('title');
+      if (!issue) { meta.textContent = '往期杂志 / ' + editions.length + ' 期 / 按刊发日期保存'; return; }
+      const weekday = new Intl.DateTimeFormat('zh-CN', {weekday:'long', timeZone:'UTC'}).format(new Date(issue.date + 'T00:00:00Z'));
+      meta.textContent = issue.date.replaceAll('-', '.') + ' / ' + weekday + ' / 回看 ' + shortDate(issue.review_date);
+      weather.append(el('span', shortDate(issue.date) + '天气记录（非实时）', 'weather-label'), link(issue.weather.text, issue.weather.url, 'weather'));
+      if (issue.weather.checked_at) weather.title = '本期查询时间：' + issue.weather.checked_at + '；链接为天气来源，可能已更新。';
+    }
+    function renderHome() {
+      document.getElementById('edition-eyebrow').textContent = 'DAILY NOTES / ' + edition.date.slice(5).replace('-', '');
+      document.getElementById('edition-title').textContent = edition.title;
+      paragraphs(document.getElementById('edition-intro'), edition.intro);
+      document.getElementById('edition-quote').textContent = edition.quote.text;
+      document.getElementById('quote-attribution').textContent = '— ' + edition.quote.attribution;
+      paragraphs(document.getElementById('yesterday'), edition.yesterday);
+      document.getElementById('today-text').textContent = edition.today.text;
+      document.getElementById('today-note').textContent = edition.today.note + ' · 本期 ' + shortDate(edition.date) + '建议';
+      document.getElementById('edition-stamp').textContent = edition.date.slice(5).replace('-', ' / ');
+      list.replaceChildren();
+      edition.items.forEach(item => {
+        const li = el('li', undefined, 'insight');
+        li.id = 'item-' + item.id;
+        li.append(el('span', item.id, 'number'));
+        const content = el('div');
+        const h = el('h3'); h.append(link(item.title, issueHref(edition.date, 'article', item.id)));
+        content.append(h, el('p', item.summary));
+        const links = el('div', undefined, 'insight-links');
+        item.sources.forEach(id => links.append(link(edition.sources[id].label, sourceHref(id))));
+        links.append(link('阅读全文 →', issueHref(edition.date, 'article', item.id), 'read'));
+        content.append(links); li.append(content); list.append(li);
+      });
+      document.title = edition.date + ' · 每日十条 · mr.he';
+    }
+    function heading(title, label, metadata) {
+      reader.append(el('p', label, 'eyebrow'), el('h1', title));
+      const row = el('div', undefined, 'reader-meta');
+      metadata.filter(Boolean).forEach(text => row.append(el('span', text)));
+      reader.append(row);
+    }
+    function sourceCards(ids) {
+      const section = el('section', undefined, 'evidence');
+      section.append(el('h2', '来源与依据'));
+      ids.forEach(id => {
+        const source = edition.sources[id];
+        const a = link('', sourceHref(id), 'source-card');
+        const row = el('span', undefined, 'source-top');
+        row.append(el('span', source.title), el('span', source.url ? '↗' : '→'));
+        a.append(row, el('small', source.type + (source.date ? ' / ' + source.date : '') + (source.url ? ' / 公开原文' : ' / 脱敏整理 · 非原文')));
+        section.append(a);
+      });
+      return section;
+    }
+    function renderArchive() {
+      heading('每一天，都留下一点。', 'THE ARCHIVE / 往期杂志', [editions.length + ' 期杂志', '已刊发内容按日期保留']);
+      const archive = el('ol', undefined, 'archive-list');
+      editions.forEach((issue, index) => {
+        const li = el('li', undefined, 'archive-item');
+        const a = link('', issueHref(issue.date));
+        a.append(el('span', issue.date + (index === 0 ? ' · 最新一期' : ''), 'archive-date'), el('h2', issue.title), el('span', '回看 ' + longDate(issue.review_date) + ' / ' + issue.items.length + ' 条观点', 'source-kind'));
+        li.append(a, el('p', issue.intro.join(' '))); archive.append(li);
+      });
+      reader.append(archive);
+      document.title = '往期杂志 · mr.he';
+    }
+    function renderArticle(id) {
+      const item = edition.items.find(item => item.id === id);
+      if (!item) { heading('没有找到这条观点。', 'PAGE NOT FOUND', []); return; }
+      lastArticle = {date:edition.date, id:item.id};
+      document.title = item.title + ' · ' + edition.date + ' · mr.he';
+      heading(item.title, 'NOTE ' + item.id + ' / ' + item.category, [longDate(edition.date), '回看 ' + shortDate(edition.review_date), '本期编辑整理 · 不等同于用户立场']);
+      reader.append(el('p', item.summary, 'standfirst'));
+      const body = el('div', undefined, 'reader-body');
+      paragraphs(body, item.paragraphs);
+      reader.append(body, el('p', item.note, 'source-notice'), sourceCards(item.sources));
+      const next = edition.items[edition.items.indexOf(item) + 1];
+      const nav = el('nav', undefined, 'reader-foot');
+      nav.append(link('← 本期目录', issueHref(edition.date)));
+      if (next) nav.append(link('下一条 ' + next.id + ' →', issueHref(edition.date, 'article', next.id)));
+      reader.append(nav);
+    }
+    function renderSource(id) {
+      const source = Object.hasOwn(edition.sources, id) ? edition.sources[id] : null;
+      if (!source) { heading('没有找到这份来源。', 'SOURCE NOT FOUND', []); return; }
+      document.title = source.title + ' · 来源依据 · mr.he';
+      heading(source.title, source.url ? 'SOURCE / 公开原文' : 'SOURCE / 脱敏整理 · 非原文', [source.type, source.date, '收录于 ' + edition.date]);
+      if (source.url) {
+        reader.append(el('p', '这是公开来源的原始机构页面或文件。', 'source-notice'), link('打开公开原文 ↗', source.url, 'source-card'));
+        return;
+      }
+      reader.append(el('p', source.notice, 'source-notice'));
+      const body = el('div', undefined, 'reader-body');
+      paragraphs(body, source.paragraphs);
+      reader.append(body, el('p', '这里仅提供为公开阅读整理的脱敏依据，不是原始笔记全文。私人原文、笔记标识和本机索引未随刊发布。', 'source-notice'));
+    }
+    function route() {
+      if (!editions.length) return;
+      let hash = location.hash.slice(1);
+      if (!hash || hash === 'home') {
+        hash = issueHref(editions[0].date).slice(1);
+        history.replaceState(null, '', '#' + hash);
+      }
+      reader.replaceChildren();
+      errorBox.hidden = true;
+      const match = hash.match(/^issue\/(\d{4}-\d{2}-\d{2})(?:\/(article|source)\/([a-z0-9-]+))?$/);
+      edition = match ? editions.find(issue => issue.date === match[1]) : null;
+      const onHome = !!edition && !match[2];
+      home.hidden = !onHome;
+      reader.hidden = onHome;
+      updateHeader(edition);
+      if (onHome) {
+        lastArticle = null;
+        renderHome();
+        const savedScroll = homeScroll.get(edition.date) || 0;
+        requestAnimationFrame(() => { if (!home.hidden) window.scrollTo(0, savedScroll); });
+        return;
+      }
+      if (hash === 'archive') {
+        lastArticle = null;
+        reader.append(link('← 最新一期', issueHref(editions[0].date), 'back'));
+        renderArchive();
+      } else if (!edition) {
+        document.title = '页面未收录 · mr.he';
+        reader.append(link('← 查看全部刊物', '#archive', 'back'));
+        heading('这一页还没有收录。', 'PAGE NOT FOUND', ['已刊发的杂志都保存在往期目录']);
+      } else {
+        const returnToArticle = match[2] === 'source' && lastArticle && lastArticle.date === edition.date;
+        reader.append(link(returnToArticle ? '← 返回刚才的观点' : '← 返回本期十条', returnToArticle ? issueHref(edition.date, 'article', lastArticle.id) : issueHref(edition.date), 'back'));
+        if (match[2] === 'article') renderArticle(match[3]);
+        else renderSource(match[3]);
+      }
+      window.scrollTo(0, 0);
+      reader.focus({preventScroll:true});
+    }
+    document.addEventListener('click', event => {
+      const a = event.target.closest('a');
+      if (a && a.getAttribute('href')?.startsWith('#') && !home.hidden && edition) homeScroll.set(edition.date, window.scrollY);
+    });
+    window.addEventListener('hashchange', route);
+    // ponytail: one approved JSON archive; after about a year, split by year while retaining the same date routes.
+    fetch('./sources.json', {credentials:'omit', cache:'no-cache'})
+      .then(response => { if (!response.ok) throw new Error('Archive unavailable'); return response.json(); })
+      .then(data => { editions = validate(data); route(); })
+      .catch(() => {
+        home.hidden = true; reader.hidden = true;
+        errorBox.textContent = '杂志暂时无法读取。请刷新重试；若仍未恢复，说明发布内容尚未就绪，不会展示未经确认的资料。';
+        errorBox.hidden = false;
+      })
+      .finally(() => { document.getElementById('loading').hidden = true; });
+  </script>
+</body>
+</html>
