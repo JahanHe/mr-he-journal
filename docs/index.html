@@ -48,10 +48,6 @@
     .side-section { margin-bottom:31px }
     .side-title { border-bottom:1px solid var(--line); padding-bottom:13px; margin:0 0 15px; font-size:11px; letter-spacing:2px; font-weight:600 }
     .side-section p { font-size:12px; line-height:1.95; color:var(--muted); margin:0 0 12px }
-    .today { background:var(--wash); padding:20px 18px; border-top:2px solid #6b805b }
-    .today h2 { margin:0 0 12px; font-size:12px; letter-spacing:1px }
-    .today p { color:#43543c }
-    .today small { color:#63725a; font-size:10px }
     .stamp { font:italic 56px Georgia,serif; color:#c5cdbb; margin:36px 0 12px; letter-spacing:-3px }
     .side-footer { font-size:10px!important; letter-spacing:1px }
     footer { margin-top:44px; padding:20px 0 32px; border-top:1px solid var(--line); font-size:11px; color:var(--muted); display:flex; justify-content:space-between; gap:12px }
@@ -148,9 +144,8 @@
       </section>
       <div class="edition">
         <section aria-labelledby="list-title"><div class="list-heading"><h2 id="list-title">每日重点</h2><span>10 条观点 · 点击阅读全文</span></div><ol class="insights" id="insights"></ol></section>
-        <aside class="sidebar" aria-label="本期昨日与今天">
+        <aside class="sidebar" aria-label="本期昨日小记">
           <section class="side-section"><h2 class="side-title">昨日小记</h2><div id="yesterday"></div></section>
-          <section class="side-section today"><h2>今天，可以做的一件事</h2><p id="today-text"></p><small id="today-note"></small></section>
           <div class="side-end"><div class="stamp" id="edition-stamp"></div><p class="side-footer">有来处的观点，<br>才有机会长成自己的判断。</p></div>
         </aside>
       </div>
@@ -214,7 +209,6 @@
         requireText(issue.title); requireParagraphs(issue.intro); requireParagraphs(issue.yesterday);
         requireText(issue.quote.text); requireText(issue.quote.attribution);
         requireText(issue.weather.text); httpsURL(issue.weather.url);
-        requireText(issue.today.text); requireText(issue.today.note);
         if (!issue.sources || typeof issue.sources !== 'object' || Array.isArray(issue.sources)) throw new Error('Missing sources');
         Object.entries(issue.sources).forEach(([id, source]) => {
           if (!/^[a-z0-9-]+$/.test(id)) throw new Error('Invalid source ID');
@@ -251,14 +245,12 @@
       document.getElementById('edition-quote').textContent = edition.quote.text;
       document.getElementById('quote-attribution').textContent = '— ' + edition.quote.attribution;
       paragraphs(document.getElementById('yesterday'), edition.yesterday);
-      document.getElementById('today-text').textContent = edition.today.text;
-      document.getElementById('today-note').textContent = edition.today.note + ' · 本期 ' + shortDate(edition.date) + '建议';
       document.getElementById('edition-stamp').textContent = edition.date.slice(5).replace('-', ' / ');
       list.replaceChildren();
-      edition.items.forEach(item => {
+      edition.items.forEach((item, index) => {
         const li = el('li', undefined, 'insight');
         li.id = 'item-' + item.id;
-        li.append(el('span', item.id, 'number'));
+        li.append(el('span', String(index + 1).padStart(2, '0'), 'number'));
         const content = el('div');
         const h = el('h3'); h.append(link(item.title, issueHref(edition.date, 'article', item.id)));
         content.append(h, el('p', item.summary));
@@ -267,7 +259,7 @@
         links.append(link('阅读全文 →', issueHref(edition.date, 'article', item.id), 'read'));
         content.append(links); li.append(content); list.append(li);
       });
-      document.title = edition.date + ' · 每日十条 · mr.he';
+      document.title = edition.title + ' · ' + edition.date + ' · mr.he';
     }
     function heading(title, label, metadata) {
       reader.append(el('p', label, 'eyebrow'), el('h1', title));
@@ -305,15 +297,16 @@
       if (!item) { heading('没有找到这条观点。', 'PAGE NOT FOUND', []); return; }
       lastArticle = {date:edition.date, id:item.id};
       document.title = item.title + ' · ' + edition.date + ' · mr.he';
-      heading(item.title, 'NOTE ' + item.id + ' / ' + item.category, [longDate(edition.date), '回看 ' + shortDate(edition.review_date), '本期编辑整理 · 不等同于用户立场']);
+      const index = edition.items.indexOf(item);
+      heading(item.title, 'NOTE ' + String(index + 1).padStart(2, '0') + ' / ' + item.category, [longDate(edition.date), '回看 ' + shortDate(edition.review_date), '本期编辑整理 · 不等同于用户立场']);
       reader.append(el('p', item.summary, 'standfirst'));
       const body = el('div', undefined, 'reader-body');
       paragraphs(body, item.paragraphs);
       reader.append(body, el('p', item.note, 'source-notice'), sourceCards(item.sources));
-      const next = edition.items[edition.items.indexOf(item) + 1];
+      const next = edition.items[index + 1];
       const nav = el('nav', undefined, 'reader-foot');
       nav.append(link('← 本期目录', issueHref(edition.date)));
-      if (next) nav.append(link('下一条 ' + next.id + ' →', issueHref(edition.date, 'article', next.id)));
+      if (next) nav.append(link('下一条 ' + String(index + 2).padStart(2, '0') + ' →', issueHref(edition.date, 'article', next.id)));
       reader.append(nav);
     }
     function renderSource(id) {

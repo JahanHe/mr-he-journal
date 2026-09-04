@@ -59,13 +59,12 @@ jobs:
           assert(Array.isArray(data.editions) && data.editions.length);
           const dates = new Set();
           for (const edition of data.editions) {
-            keys(edition, ['date', 'review_date', 'title', 'intro', 'quote', 'weather', 'yesterday', 'today', 'publication', 'sources', 'items']);
+            keys(edition, ['date', 'review_date', 'title', 'intro', 'quote', 'weather', 'yesterday', 'publication', 'sources', 'items']);
             date(edition.date); date(edition.review_date);
             assert(!dates.has(edition.date), 'Duplicate edition date'); dates.add(edition.date);
             assert.equal(Date.parse(edition.date) - Date.parse(edition.review_date), 86400000, 'Review must cover yesterday');
             text(edition.title); texts(edition.intro); texts(edition.yesterday);
             keys(edition.quote, ['text', 'attribution']); text(edition.quote.text); text(edition.quote.attribution);
-            keys(edition.today, ['text', 'note']); text(edition.today.text); text(edition.today.note);
             keys(edition.weather, ['text', 'url', 'checked_at']); text(edition.weather.text, 30); https(edition.weather.url); assert(Number.isFinite(Date.parse(edition.weather.checked_at)));
             keys(edition.publication, ['visibility', 'sanitized', 'approved', 'approved_at']);
             // ponytail: explicit human review is required; schema checks cannot establish privacy or factual accuracy.
