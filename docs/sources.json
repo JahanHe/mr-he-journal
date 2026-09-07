@@ -2,6 +2,395 @@
   "schema_version": 1,
   "editions": [
     {
+      "date": "2026-09-07",
+      "review_date": "2026-09-06",
+      "title": "写下去，还图什么？",
+      "intro": [
+        "去年3月的口述在证明“我做得到”，今年4月的摘要在谈日常秩序。把它们与昨夜关于迷茫的记录并排看，坚持就不只剩下成绩这一把尺子。",
+        "这期先翻回这几页旧笔记，再看一个新细节：昨天收录的聚会摘要里，聊AI的人约着写两篇文章，交给彼此看。"
+      ],
+      "quote": {
+        "text": "写完以后，至少有一个问题比动笔前清楚。",
+        "attribution": "本期提炼 · 由4月16日的创作材料延伸"
+      },
+      "weather": {
+        "text": "杭州23–28℃，晴；短袖，户外注意防晒。",
+        "url": "https://www.nmc.cn/publish/forecast/AZJ/hangzhou.html",
+        "checked_at": "2026-09-07T00:20:41Z"
+      },
+      "yesterday": [
+        "9月7日刊 · 回看9月6日",
+        "昨夜口述、聚会摘要与两篇健康收藏；历史材料另标日期。"
+      ],
+      "publication": {
+        "visibility": "public",
+        "sanitized": true,
+        "approved": true,
+        "approved_at": "2026-09-07T00:20:41Z"
+      },
+      "sources": {
+        "persistence-note": {
+          "title": "迷茫中仍有可以控制的事｜昨日口述整理",
+          "label": "9/6 坚持与迷茫",
+          "date": "2026-09-06",
+          "type": "GET口述保存文本 · 脱敏整理",
+          "notice": "这是GET保存文本的脱敏整理，不是原文或逐字稿；未与原音核对，不据此判断个人心理状态。",
+          "paragraphs": [
+            "一段昨夜收录的口述谈到：难以回答意义和目标时，仍可以保留一些能够完成、持续做下去的事情。",
+            "其中也允许迷茫和方向不正确；本期将“继续做事”与“永不改变目标”分开理解，不将熵增比喻当作科学解释。"
+          ]
+        },
+        "writing-2025": {
+          "title": "用持续写作证明做得到｜历史记录整理",
+          "label": "2025/3/19 旧记录",
+          "date": "2025-03-19",
+          "type": "GET口述保存文本 · 历史整理",
+          "notice": "这是历史GET保存文本的脱敏整理，不是原文全文；未核验原音和写作成绩，具体篇数不公开。",
+          "paragraphs": [
+            "这份旧记录将连续写作视为证明自己能够完成一件困难的事，也留下了选题困难、时间不足和写不出来的过程。"
+          ]
+        },
+        "order-history": {
+          "title": "从完成数量到维持秩序｜历史摘要整理",
+          "label": "4/11 更新与秩序",
+          "date": "2026-04-11",
+          "type": "GET智能摘要 · 历史整理",
+          "notice": "这是GET智能摘要的脱敏整理，不是原文或逐字稿；只用于比较记录中的表述，不替本人确立固定的人生结论。",
+          "paragraphs": [
+            "这份摘要记录了对内容更新目的的反思：量化目标完成后，更新被重新理解为维持日常规律、继续与外界交互的一种方式。"
+          ]
+        },
+        "feedback-history": {
+          "title": "写完以后，是否弄清一个问题｜历史材料整理",
+          "label": "4/16 创作反馈",
+          "date": "2026-04-16",
+          "type": "GET口述式方法材料 · 历史整理",
+          "notice": "这是历史GET保存文本的脱敏整理，不是原文全文；材料包含面向听众的表述，原创归属和实践情况未核实。",
+          "paragraphs": [
+            "一份关于低反馈阶段创作的旧材料，将观察对象从平台数字移到作品本身：是否弄清一个问题，是否形成更清楚的表达。",
+            "它也讨论借助AI减少起笔摩擦；本期不采纳其中对坚持者与停下者的价值排序，不将这份材料当作已验证的方法或本人已经实践的证明。"
+          ]
+        },
+        "gathering-note": {
+          "title": "一场交流留下的作品、服务与选择问题",
+          "label": "9/6 聚会摘要",
+          "date": "2026-09-06",
+          "type": "GET聚会录音智能摘要 · 脱敏整理",
+          "notice": "这里是本期使用的脱敏整理，不是原文或逐字稿；多人智能摘要的发言归属和细节可能有误，不将其中经历一概认作用户本人经历。",
+          "paragraphs": [
+            "摘要记录了一份互相写AI主题文章、交给对方看的约定，没有提供完稿结果。本期不把约定写成已经交付的成果。",
+            "另有体验课程推销中提出补贴、对方仍感到反感的情节，以及从课程转向社群陪跑的讨论。这里只保留支撑判断的情节，不公开人物、价格、人数、期限和私下约定细节。"
+          ]
+        },
+        "action-essay": {
+          "title": "内容从真实问题与行动里来｜确认稿要点",
+          "label": "8/26 确认稿",
+          "date": "2026-08-26",
+          "type": "用户确认作品 · 要点整理",
+          "notice": "这里是已确认作品的要点整理，不是原文全文；本期仅公开理解判断所需的部分。",
+          "paragraphs": [
+            "《为什么越学爆款，越不知道该发什么？》区分单条内容被点开与账号值得长期关注。",
+            "稿中以接入AI、遇到阻碍并查资料为例：先做本来就在解决的事情，再把有用的过程分享出来。"
+          ]
+        },
+        "reality-essay": {
+          "title": "现实里的结果，高于完整的说服｜确认稿要点",
+          "label": "8/31 确认稿",
+          "date": "2026-08-31",
+          "type": "用户确认作品 · 要点整理",
+          "notice": "这里是已确认作品的要点整理，不是原文全文；本期用它校准对AI写作和服务变化的理解。",
+          "paragraphs": [
+            "《越AI，越要去现实生活里做点啥》提醒：逻辑可以完整，现实里却可能什么也没有发生。作品值得尊重的部分，是实际尝试后带回的结果。"
+          ]
+        },
+        "longevity-note": {
+          "title": "普通人的抗老故事｜昨日收藏整理",
+          "label": "9/6 抗老收藏",
+          "date": "2026-09-06",
+          "type": "GET第三方链接摘要 · 脱敏整理",
+          "notice": "这是第三方收藏的脱敏整理，不是原文全文；其中名次、费用和健康效果不作为已核实事实。",
+          "paragraphs": [
+            "这篇收藏介绍Julie Gibson Clark的日常饮食、运动与生活习惯，并以预算和生物年龄排行榜成绩强调其可借鉴性。",
+            "本期保留长期安排可以贴近日常生活的线索；榜单、预算与健康效果分别核查，收藏不代表本人认同或已照做。"
+          ]
+        },
+        "inflammation-note": {
+          "title": "食物顺序、肠道与衰老｜昨日收藏整理",
+          "label": "9/6 抗炎收藏",
+          "date": "2026-09-06",
+          "type": "GET第三方链接摘要 · 脱敏整理",
+          "notice": "这是第三方收藏的脱敏整理，不是原文全文；不是对用户健康状况的判断，也不是个体医疗、用药或补剂建议。",
+          "paragraphs": [
+            "收藏将发酵食物、膳食纤维、进食顺序以及营养与运动组合连到慢性炎症和抗衰。",
+            "本期分别核对这些主张实际测量了什么，不把一餐血糖、炎症相关蛋白和生物年龄指标接成已经证实的延寿链条。"
+          ]
+        },
+        "progress-meta": {
+          "title": "Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence",
+          "label": "Harkin等 · 进度监测原文",
+          "type": "外部原始研究 · 2016",
+          "url": "https://eprints.whiterose.ac.uk/id/eprint/87431/1/bul%20harkin%20raw%20final.pdf"
+        },
+        "noy-study": {
+          "title": "Experimental evidence on the productivity effects of generative artificial intelligence",
+          "label": "Noy、Zhang · 原研究摘要",
+          "date": "2023-07-14",
+          "type": "外部原始研究摘要",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37440646/"
+        },
+        "noy-context": {
+          "title": "Study finds ChatGPT boosts worker productivity for some writing tasks",
+          "label": "MIT · 实验设置与限制",
+          "date": "2023-07-14",
+          "type": "研究机构说明",
+          "url": "https://news.mit.edu/2023/study-finds-chatgpt-boosts-worker-productivity-writing-0714"
+        },
+        "sales-study": {
+          "title": "An offer you can't refuse: consumer perceptions of sales pressure",
+          "label": "Zboja等 · 销售压力研究",
+          "type": "作者机构论文页 · 2016",
+          "url": "https://bearworks.missouristate.edu/articles-cob/532/"
+        },
+        "sales-correction": {
+          "title": "Erratum to: An offer you can't refuse: consumer perceptions of sales pressure",
+          "label": "期刊勘误 · 表3、4更正",
+          "type": "原研究勘误 · 2016",
+          "url": "https://link.springer.com/article/10.1007/s11747-016-0480-y"
+        },
+        "segment": {
+          "title": "Peter Reinhardt on Finding Product Market Fit at Segment",
+          "label": "YC · 创始人原访谈",
+          "type": "一手访谈 · 2018",
+          "url": "https://www.ycombinator.com/blog/peter-reinhardt-on-finding-product-market-fit-at-segment"
+        },
+        "julie": {
+          "title": "About Gibson Girl",
+          "label": "Julie本人 · 生活与历史成绩自述",
+          "type": "当事人自述，非疗效证据 · 读取于2026-09-07",
+          "url": "https://www.juliegibsonclark.com/about-gibson-girl"
+        },
+        "pace": {
+          "title": "DunedinPACE, a DNA methylation biomarker of the pace of aging",
+          "label": "eLife · 指标原始研究",
+          "date": "2022-02-17",
+          "type": "外部原始研究",
+          "url": "https://elifesciences.org/articles/73420"
+        },
+        "who-function": {
+          "title": "Healthy ageing and functional ability",
+          "label": "WHO · 健康老龄化与功能能力",
+          "date": "2020-10-26",
+          "type": "世界卫生组织说明",
+          "url": "https://www.who.int/news-room/questions-and-answers/item/healthy-ageing-and-functional-ability"
+        },
+        "fermentation": {
+          "title": "Gut-microbiota-targeted diets modulate human immune status",
+          "label": "Cell · 发酵食物与高纤维原研究",
+          "date": "2021-08-05",
+          "type": "大学存档原论文",
+          "url": "https://elearning.unite.it/pluginfile.php/280495/mod_folder/content/0/Sonnenberg_Cell%202021.pdf?forcedownload=1"
+        },
+        "meal-short": {
+          "title": "Carbohydrate-last meal pattern lowers postprandial glucose and insulin excursions in type 2 diabetes",
+          "label": "2017 · 同一份餐食的交叉试验",
+          "date": "2017-09-14",
+          "type": "外部原始研究",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5604719/"
+        },
+        "meal-long": {
+          "title": "进食顺序指导与糖尿病前期成人的16周试验",
+          "label": "2023 · 真实生活中的长期对照",
+          "date": "2023-10-20",
+          "type": "外部原始研究",
+          "url": "https://mdpi-res.com/d_attachment/nutrients/nutrients-15-04452/article_deploy/nutrients-15-04452.pdf"
+        },
+        "do-health": {
+          "title": "Individual and additive effects of vitamin D, omega-3 and exercise on DNA methylation clocks of biological aging in older adults from the DO-HEALTH trial",
+          "label": "Nature Aging · DO-HEALTH原研究",
+          "date": "2025-02-03",
+          "type": "外部原始研究",
+          "url": "https://www.nature.com/articles/s43587-024-00793-y"
+        },
+        "goal-adjustment": {
+          "title": "Adaptive Self-Regulation of Unattainable Goals: Goal Disengagement, Goal Reengagement, and Subjective Well-Being",
+          "label": "2003 · 放下旧目标与重新投入",
+          "type": "外部原始研究 · 2003-12",
+          "url": "https://bpb-us-e1.wpmucdn.com/sites.northwestern.edu/dist/0/63/files/2013/03/03-PSPB-Self-regulation-of-unattainable-goals.pdf"
+        }
+      },
+      "items": [
+        {
+          "id": "01",
+          "category": "旧笔记的新下文",
+          "title": "写作的回报，不只记在篇数上。",
+          "summary": "旧记录想证明“做得到”，后来的记录在找日常秩序；昨夜则更关心，迷茫中还有什么握在自己手里。把几份笔记并排看，坚持多了几种用途。",
+          "sources": [
+            "persistence-note",
+            "writing-2025",
+            "order-history"
+          ],
+          "paragraphs": [
+            "2025年3月19日的口述保存文本，把持续写作看作能力的证明。写不出来、时间不够，仍要完成；它在回答“我到底能不能做到”。",
+            "今年4月11日的智能摘要写到，数量目标完成以后，更新又被理解为维持日常规律。昨夜的口述则把注意力放在：方向不清楚时，仍有一些事可以完成、可以控制。",
+            "这几份记录没有给“坚持”一个固定答案。它可以留下成绩，也可以让一天有所依托。回看它们，值得保留的变化是：同一个动作，不必永远替同一种目标工作。"
+          ],
+          "note": "历史联系来自保存文本；不是对本人状态的定论。"
+        },
+        {
+          "id": "02",
+          "category": "一份尚未完成的约定",
+          "title": "交出一篇文章，和弄清一个问题，是两份收获。",
+          "summary": "互相交稿的约定，让聊天指向一份可以留下来的作品。4月那份旧材料又补上一把尺子：文章完成后，究竟有什么比动笔前更清楚？",
+          "sources": [
+            "gathering-note",
+            "feedback-history",
+            "progress-meta"
+          ],
+          "paragraphs": [
+            "昨天收录的聚会摘要，留下了一份互相写AI主题文章的约定。它没有提供完稿结果；值得保留的是，“聊过很多”有机会变成一个能回头看的对象。",
+            "4月16日的创作材料恰好补了下一层：判断文章，不只看有没有发出去，还看是否弄清一个问题。交稿留下行动证据，内容增加了什么，仍要在稿子里找。",
+            "Harkin等2016年汇总138项随机干预，发现监测进度总体有助于目标达成。不过研究几乎都在健康领域，且存在发表偏倚迹象；它只提供相邻支持，不能证明互相约稿或私下奖惩必然有效。"
+          ],
+          "note": "摘要只提供约定，没有提供完稿结果。"
+        },
+        {
+          "id": "03",
+          "category": "AI与作者",
+          "title": "AI能帮你成文，文章还需要它的来路。",
+          "summary": "8月那篇确认稿，内容来自接入工具、遇到阻碍，再去查资料。AI可以省起草工夫，但文档写满以后，那段真实尝试不会自动出现。",
+          "sources": [
+            "action-essay",
+            "reality-essay",
+            "noy-study",
+            "noy-context"
+          ],
+          "paragraphs": [
+            "你在8月26日的确认稿里，已经留过一条具体来路：先遇到“AI为什么不认识我”的问题，再动手连接工具，碰到阻碍并研究资料。文章跟在这些事情后面。",
+            "Noy与Zhang在2023年让453名受过大学教育的专业人士完成职业写作任务。获得ChatGPT辅助的一组，平均用时减少40%，独立评分提高18%；这是起草效率能够提升的真实证据。",
+            "但任务并不要求严格核准事实，也缺少具体客户和公司的长期上下文。研究没有检验，AI是否替作者完成了那段真实尝试。这也补充8月31日的旧判断：省下成文工夫，可以把现实过程写得更清楚；不能把没做过的事变成做过。"
+          ],
+          "note": "研究数字对应当时的特定任务，不是今天所有AI写作的通用增幅。"
+        },
+        {
+          "id": "04",
+          "category": "成交之外",
+          "title": "提出补贴，也没消除那份反感。",
+          "summary": "体验课摘要里，推销者提出自己补贴，体验者仍感到反感。阻力可能不只在价格，也在对方是否有从容决定的余地。选择权也是服务的一部分。",
+          "sources": [
+            "gathering-note",
+            "sales-study",
+            "sales-correction"
+          ],
+          "paragraphs": [
+            "这段摘要里最有用的反差，是推销者提出补贴，体验者仍然排斥。它让“成交卡在哪里”多了另一种解释：人需要判断是否合适，而不只是拿到更低的数字。",
+            "Zboja等的消费者研究区分了急迫、操控式压力与导向式销售。前一类与较低的满意度和信任相关；不能据此说所有主动介绍都会让人反感。研究为回忆式问卷，不是逼单影响成交率的随机试验。",
+            "在这个情节里，讲清楚课程怎样教，与催对方现在就买，承担的是不同工作。补贴改变了报价的吸引力，却未必回应了人想保留选择的需要。"
+          ],
+          "note": "这是对摘要情节的一种解释，不确认当事人的内心，也不公开交易细节。"
+        },
+        {
+          "id": "05",
+          "category": "生意里的新问题",
+          "title": "从课程转向陪跑，问题也跟着变了。",
+          "summary": "摘要把一种新尝试称为“社群陪跑”。它提出的问题是：购买者缺的是更多讲解，还是实际使用时的回应？产品换个名字，还不足以回答。",
+          "sources": [
+            "gathering-note",
+            "reality-essay",
+            "segment"
+          ],
+          "paragraphs": [
+            "昨日摘要描述了一种从课程转向社群陪跑的尝试，但没有给出足够的实际交付细节。它为理解需求打开了另一个入口，还不能说这种生意已经验证成功。",
+            "Segment创始人在YC的原访谈里，讲过一次相邻的错位：用户肯用他们的数据路由库，却不愿再接入原本主推的分析工具。真正被采用的那一部分，与团队以为要卖的产品不同。",
+            "这让8月31日“从现实带回结果”的旧判断更具体了一点：有人第一次购买、有人持续使用、有人因此解决问题，是不同层次的结果。服务是否变得更有用，要在后来发生的事情里才能看清。"
+          ],
+          "note": "Segment是相邻案例，不是这项社群尝试成功的证据。"
+        },
+        {
+          "id": "06",
+          "category": "把抗衰放回生活",
+          "title": "好生活，不用先赢过排行榜上的人。",
+          "summary": "Julie的故事里，日常安排可以借鉴；名次不能替整套方案证明效果。能继续走动、学习、维持关系，比在一张榜单上超过谁更贴近生活。",
+          "sources": [
+            "longevity-note",
+            "julie",
+            "pace",
+            "who-function"
+          ],
+          "paragraphs": [
+            "昨天那篇抗老收藏，把普通人的生活与高预算抗衰放在一起比较。它最有吸引力的部分，是照顾身体似乎也可以嵌进日常，而非先复制另一人的全部开支。",
+            "Julie本人网站把第二名标作规则修改前的成绩。榜单使用的DunedinPACE是由血液甲基化估计的衰老速度指标；0.66并不等于实际观察到每过100天只老66天，也不能直接换算寿命。",
+            "WHO的健康老龄化框架，把学习、走动、维持关系等功能能力放在中心。这个视角允许我们认真理解某人的生活安排，同时把对生活的欣赏与对疗效的证明分开。"
+          ],
+          "note": "人物自述不是疗效试验；不由此推荐补剂或判断个人健康。"
+        },
+        {
+          "id": "07",
+          "category": "餐桌上的细节",
+          "title": "酸奶和蔬菜，未必在做同一份工作。",
+          "summary": "一项小规模饮食研究中，发酵食物与高纤维饮食呈现不同变化。菌群多样性只是其中一把尺子，不能独自替所有食物排座次。",
+          "sources": [
+            "inflammation-note",
+            "fermentation"
+          ],
+          "paragraphs": [
+            "2021年一项面向健康成年人的研究，比较增加发酵食物和增加膳食纤维的饮食，最终分析两组共36人。发酵组的菌群多样性上升，93种被测炎症相关蛋白中有19种下降。",
+            "高纤维组整体多样性没有上升，但微生物处理复杂碳水的相关酶增加，免疫反应也存在个体差别。同样面向肠道，观察到的变化并非只有一种。",
+            "两组预设的主要免疫终点都未显著改变，前述发现主要属次要或探索结果；样本小，也没有维持原饮食的第三组。它支持把“养肠道”看得更细，不足以排出治病或延寿食谱。"
+          ],
+          "note": "“纤维没有提高多样性”不等于“纤维无用”；本文不构成个体饮食方案。"
+        },
+        {
+          "id": "08",
+          "category": "方法的尺寸",
+          "title": "同一份饭菜，先吃哪样会改变餐后曲线。",
+          "summary": "小型2型糖尿病试验里，总量没变，先蛋白质和蔬菜、后碳水，比反着吃的三小时血糖增量面积和峰值更低。但一餐的变化，不能包办几个月的结果。",
+          "sources": [
+            "inflammation-note",
+            "meal-short",
+            "meal-long"
+          ],
+          "paragraphs": [
+            "2017年，16名服用二甲双胍、超重或肥胖的2型糖尿病参与者，交叉吃同一份定量餐。先吃蛋白质和蔬菜、间隔10分钟再吃碳水时，3小时餐后血糖增量面积与增量峰值，均低于先吃碳水的顺序。",
+            "但2023年另一项糖尿病前期成人的16周试验，没有发现额外加入进食顺序指导，能让体重、HbA1c和葡萄糖耐量改善显著优于常规营养指导。45人进入试验，39人完成。",
+            "这个方法有一个具体位置：研究同样的食物怎样进入身体。它没有证明可以多吃，也没有测出“降低一餐血糖”就能一路推到抗炎、抗衰。"
+          ],
+          "note": "两项试验人群不同；不替代个体营养或用药建议。"
+        },
+        {
+          "id": "09",
+          "category": "长期研究",
+          "title": "研究等了三年，看见的是几个月的差别。",
+          "summary": "DO-HEALTH的一项后续分析测到小幅生物年龄指标差异。结果值得认真保存，但“年轻几个月”说的是指标换算，不是已经多活几个月。",
+          "sources": [
+            "inflammation-note",
+            "do-health"
+          ],
+          "paragraphs": [
+            "2025年发表的DO-HEALTH甲基化分析，纳入777名瑞士70岁及以上参与者，比较三年干预前后的变化。分配到omega-3的人，在四种衰老指标中的三种出现小幅差异。",
+            "论文把其中两个时钟的变化换算为约2.9–3.8个月；维生素D、omega-3与居家力量训练叠加的额外变化，只出现在一种时钟上。组合带来的变化集中在这里，说明这些指标并没有同步响应。",
+            "这是原随机试验的事后分析，样本本就较健康活跃，只有前后两次甲基化检测。能否延长寿命、变化能否持续，仍未回答。小幅但真实测到的差异，本身就值得记录，不必靠夸大来获得分量。"
+          ],
+          "note": "指标变化不能换成寿命承诺，也不能据此判断运动无用或决定补剂剂量。"
+        },
+        {
+          "id": "10",
+          "category": "留一点余地",
+          "title": "换一个值得做的目标，也可以是继续。",
+          "summary": "昨夜的口述既谈坚持，也允许迷茫。研究把“放下无法实现的目标”与“重新投入别的目标”分开：停下某件事，不必等于退出所有值得做的事。",
+          "sources": [
+            "persistence-note",
+            "goal-adjustment"
+          ],
+          "paragraphs": [
+            "读完昨夜那段口述，不能只留下“不停做下去”。它也写到了方向会失去、判断可能不正确。“继续做下去”，未必必须指向原来的那件事。",
+            "Wrosch等2003年的三项研究，分别观察115名大学生、120名年轻及年长成人、45名父母。能够放下难以实现的目标、转向其他有意义的目标，与部分较好的主观幸福感指标相关，具体关系随人群和条件变化。",
+            "这些横断面研究不能证明换目标必然让人更快乐，也不能替人判断一个目标已经不可能。它只让“坚持”多留一扇门：一件事可以结束，人仍有别的事情值得认真投入。"
+          ],
+          "note": "研究提供一个理解角度，不替个人判断目标该不该放下。"
+        }
+      ]
+    },
+    {
       "date": "2026-09-06",
       "review_date": "2026-09-05",
       "title": "运动后的两小时，也算在好好生活里",
