@@ -17,8 +17,7 @@
       "weather": {
         "text": "杭州22–29℃，多云转晴；短袖配薄外搭。",
         "url": "https://www.nmc.cn/publish/forecast/AZJ/hangzhou.html",
-        "checked_at": "2026-09-12 00:15:27 UTC",
-        "forecast_issued_at": "2026-09-12T08:00:00+08:00"
+        "checked_at": "2026-09-12T00:15:27Z"
       },
       "publication": {
         "visibility": "public",
