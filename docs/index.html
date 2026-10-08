@@ -145,7 +145,7 @@
       <div class="edition">
         <section aria-labelledby="list-title"><div class="list-heading"><h2 id="list-title">每日重点</h2><span>10 条观点 · 点击阅读全文</span></div><ol class="insights" id="insights"></ol></section>
         <aside class="sidebar" aria-label="本期昨日小记">
-          <section class="side-section"><h2 class="side-title">昨日小记</h2><div id="yesterday"></div></section>
+          <section class="side-section"><h2 id="review-heading" class="side-title">昨日小记</h2><div id="yesterday"></div></section>
           <div class="side-end"><div class="stamp" id="edition-stamp"></div><p class="side-footer">有来处的观点，<br>才有机会长成自己的判断。</p></div>
         </aside>
       </div>
@@ -194,6 +194,10 @@
     const dateParts = date => date.split('-');
     const shortDate = date => { const parts = dateParts(date); return Number(parts[1]) + ' 月 ' + Number(parts[2]) + ' 日'; };
     const longDate = date => dateParts(date)[0] + ' 年 ' + shortDate(date);
+    // ponytail: optional range keeps every existing daily edition unchanged.
+    const reviewLabel = (issue, full = false) => issue.review_start
+      ? '周报回看 ' + longDate(issue.review_start) + ' — ' + longDate(issue.review_date)
+      : '回看 ' + (full ? longDate(issue.review_date) : shortDate(issue.review_date));
     const paragraphs = (container, values) => { container.replaceChildren(...values.map(text => el('p', text))); };
     function validate(data) {
       if (!data || data.schema_version !== 1 || !Array.isArray(data.editions) || !data.editions.length) throw new Error('No editions');
@@ -202,6 +206,7 @@
       const requireParagraphs = values => { if (!Array.isArray(values) || !values.length) throw new Error('Missing paragraphs'); values.forEach(requireText); };
       data.editions.forEach(issue => {
         if (!isDate(issue.date) || !isDate(issue.review_date) || dates.has(issue.date)) throw new Error('Invalid edition date');
+        if (issue.review_start !== undefined && (!isDate(issue.review_start) || issue.review_start > issue.review_date || issue.review_date > issue.date)) throw new Error('Invalid review range');
         dates.add(issue.date);
         const publication = issue.publication;
         if (!publication || publication.visibility !== 'public' || publication.sanitized !== true || publication.approved !== true) throw new Error('Not approved for publication');
@@ -234,16 +239,18 @@
       weather.removeAttribute('title');
       if (!issue) { meta.textContent = '往期杂志 / ' + editions.length + ' 期 / 按刊发日期保存'; return; }
       const weekday = new Intl.DateTimeFormat('zh-CN', {weekday:'long', timeZone:'UTC'}).format(new Date(issue.date + 'T00:00:00Z'));
-      meta.textContent = issue.date.replaceAll('-', '.') + ' / ' + weekday + ' / 回看 ' + shortDate(issue.review_date);
+      meta.textContent = issue.date.replaceAll('-', '.') + ' / ' + weekday + ' / ' + reviewLabel(issue);
       weather.append(el('span', shortDate(issue.date) + '天气记录（非实时）', 'weather-label'), link(issue.weather.text, issue.weather.url, 'weather'));
       if (issue.weather.checked_at) weather.title = '本期查询时间：' + issue.weather.checked_at + '；链接为天气来源，可能已更新。';
     }
     function renderHome() {
-      document.getElementById('edition-eyebrow').textContent = 'DAILY NOTES / ' + edition.date.slice(5).replace('-', '');
+      document.getElementById('edition-eyebrow').textContent = (edition.review_start ? 'WEEKLY NOTES / ' : 'DAILY NOTES / ') + edition.date.slice(5).replace('-', '');
       document.getElementById('edition-title').textContent = edition.title;
       paragraphs(document.getElementById('edition-intro'), edition.intro);
       document.getElementById('edition-quote').textContent = edition.quote.text;
       document.getElementById('quote-attribution').textContent = '— ' + edition.quote.attribution;
+      document.getElementById('review-heading').textContent = edition.review_start ? '本期小记' : '昨日小记';
+      document.getElementById('review-heading').closest('aside').setAttribute('aria-label', edition.review_start ? '本期小记' : '本期昨日小记');
       paragraphs(document.getElementById('yesterday'), edition.yesterday);
       document.getElementById('edition-stamp').textContent = edition.date.slice(5).replace('-', ' / ');
       list.replaceChildren();
@@ -286,7 +293,7 @@
       editions.forEach((issue, index) => {
         const li = el('li', undefined, 'archive-item');
         const a = link('', issueHref(issue.date));
-        a.append(el('span', issue.date + (index === 0 ? ' · 最新一期' : ''), 'archive-date'), el('h2', issue.title), el('span', '回看 ' + longDate(issue.review_date) + ' / ' + issue.items.length + ' 条观点', 'source-kind'));
+        a.append(el('span', issue.date + (index === 0 ? ' · 最新一期' : ''), 'archive-date'), el('h2', issue.title), el('span', reviewLabel(issue, true) + ' / ' + issue.items.length + ' 条观点', 'source-kind'));
         li.append(a, el('p', issue.intro.join(' '))); archive.append(li);
       });
       reader.append(archive);
@@ -298,7 +305,7 @@
       lastArticle = {date:edition.date, id:item.id};
       document.title = item.title + ' · ' + edition.date + ' · mr.he';
       const index = edition.items.indexOf(item);
-      heading(item.title, 'NOTE ' + String(index + 1).padStart(2, '0') + ' / ' + item.category, [longDate(edition.date), '回看 ' + shortDate(edition.review_date), '本期编辑整理 · 不等同于用户立场']);
+      heading(item.title, 'NOTE ' + String(index + 1).padStart(2, '0') + ' / ' + item.category, [longDate(edition.date), reviewLabel(edition), '本期编辑整理 · 不等同于用户立场']);
       reader.append(el('p', item.summary, 'standfirst'));
       const body = el('div', undefined, 'reader-body');
       paragraphs(body, item.paragraphs);
