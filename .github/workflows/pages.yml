@@ -3,7 +3,7 @@ name: Publish personal journal
 on:
   push:
     branches: [main]
-    paths: [docs/index.html, docs/sources.json, .github/workflows/pages.yml]
+    paths: [docs/index.html, docs/sources.json, docs/bloggers-2026-10-13.html, .github/workflows/pages.yml]
   workflow_dispatch:
 
 permissions: {}
@@ -33,6 +33,7 @@ jobs:
           sparse-checkout: |
             docs/index.html
             docs/sources.json
+            docs/bloggers-2026-10-13.html
           sparse-checkout-cone-mode: false
       - name: Validate and stage reviewed editions
         id: public
@@ -43,7 +44,7 @@ jobs:
           const path = require('node:path');
           const assert = require('node:assert/strict');
           const { execFileSync } = require('node:child_process');
-          const files = ['index.html', 'sources.json'];
+          const files = ['index.html', 'sources.json', 'bloggers-2026-10-13.html'];
           for (const file of files) assert(fs.lstatSync(`docs/${file}`).isFile(), `Not a regular file: ${file}`);
           const keys = (value, allowed) => {
             assert(value && typeof value === 'object' && !Array.isArray(value));
@@ -106,7 +107,7 @@ jobs:
           }
           const contents = files.map(file => fs.readFileSync(`docs/${file}`, 'utf8')).join('\n');
           assert(!/(?:\/Users\/|127\.0\.0\.1|localhost|BEGIN [A-Z ]*PRIVATE KEY|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,})/.test(contents), 'Private path, local URL or credential detected');
-          // ponytail: publish only these two explicit files, never the repository or an arbitrary docs directory.
+          // ponytail: publish only these three explicit files, never the repository or an arbitrary docs directory.
           const target = fs.mkdtempSync(path.join(process.env.RUNNER_TEMP, 'journal-public-'));
           for (const file of files) fs.copyFileSync(`docs/${file}`, path.join(target, file));
           fs.appendFileSync(process.env.GITHUB_OUTPUT, `path=${target}\n`);
