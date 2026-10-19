@@ -99,7 +99,8 @@ jobs:
             }
           }
           // ponytail: keep every published date; same-date corrections remain possible and Git preserves prior text.
-          const git = args => execFileSync('git', args, { encoding: 'utf8' }).trim();
+          // ponytail: allow archive growth up to 64 MiB; use streamed reads if it outgrows this bound.
+          const git = args => execFileSync('git', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).trim();
           const parent = git(['rev-list', '--parents', '-n', '1', 'HEAD']).split(/\s+/)[1];
           if (parent && git(['ls-tree', '--name-only', parent, '--', 'docs/sources.json'])) {
             const previous = JSON.parse(git(['show', `${parent}:docs/sources.json`]));
