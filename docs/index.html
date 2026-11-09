@@ -222,6 +222,12 @@
           if (source.date && !isDate(source.date)) throw new Error('Invalid source date');
           if (source.url) httpsURL(source.url);
           else { requireParagraphs(source.paragraphs); requireText(source.notice); }
+          if (source.kind === 'public-transcript') {
+            if (source.url) throw new Error('Transcript must use its reading page');
+            requireText(source.author); requireText(source.date); requireText(source.collected_date);
+            if (!isDate(source.collected_date)) throw new Error('Invalid collection date');
+            httpsURL(source.original_url);
+          }
         });
         if (!Array.isArray(issue.items) || issue.items.length !== 10) throw new Error('Expected ten items');
         const ids = new Set();
@@ -321,15 +327,17 @@
       const source = Object.hasOwn(edition.sources, id) ? edition.sources[id] : null;
       if (!source) { heading('没有找到这份来源。', 'SOURCE NOT FOUND', []); return; }
       document.title = source.title + ' · 来源依据 · mr.he';
-      heading(source.title, source.url ? 'SOURCE / 公开原文' : 'SOURCE / 脱敏整理 · 非原文', [source.type, source.date, '收录于 ' + edition.date]);
+      const transcript = source.kind === 'public-transcript';
+      heading(source.title, transcript ? 'SOURCE / 公开作品转写' : source.url ? 'SOURCE / 公开原文' : 'SOURCE / 脱敏整理 · 非原文', transcript ? [source.author, '发布于 ' + source.date, 'GET收录于 ' + source.collected_date] : [source.type, source.date, '收录于 ' + edition.date]);
       if (source.url) {
         reader.append(el('p', '这是公开来源的原始机构页面或文件。', 'source-notice'), link('打开公开原文 ↗', source.url, 'source-card'));
         return;
       }
       reader.append(el('p', source.notice, 'source-notice'));
+      if (transcript) reader.append(link('打开原视频 ↗', source.original_url, 'source-card'));
       const body = el('div', undefined, 'reader-body');
       paragraphs(body, source.paragraphs);
-      reader.append(body, el('p', '这里仅提供为公开阅读整理的脱敏依据，不是原始笔记全文。私人原文、笔记标识和本机索引未随刊发布。', 'source-notice'));
+      reader.append(body, el('p', transcript ? '以上为GET保存的公开作品转写，可能存在识别错误，内容以原视频为准；不代表本刊赞同全部说法。' : '这里仅提供为公开阅读整理的脱敏依据，不是原始笔记全文。私人原文、笔记标识和本机索引未随刊发布。', 'source-notice'));
     }
     function route() {
       if (!editions.length) return;
