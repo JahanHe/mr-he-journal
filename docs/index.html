@@ -133,7 +133,7 @@
   <div class="frame">
     <header class="masthead">
       <a class="brand" href="#home" aria-label="mr.he 最新一期"><span class="wordmark">mr.he</span><span class="brand-note">A PERSONAL JOURNAL</span></a>
-      <div class="mast-actions"><span class="privacy">公开版 · 已脱敏</span><a class="archive-link" href="#archive">往期杂志 ↗</a></div>
+      <div class="mast-actions"><span class="privacy">公开版 · 来源可查</span><a class="archive-link" href="#archive">往期杂志 ↗</a></div>
     </header>
     <p style="margin:12px 0;font-size:13px"><a class="archive-link" href="bloggers-2026-10-13.html">10.13 博主特辑｜工具越做越多，留给你的时间呢？ ↗</a></p>
     <div class="mast-meta"><span id="edition-meta">每日十条 · 按日期保存</span><div id="weather" class="weather-wrap"></div></div>
@@ -289,7 +289,7 @@
         const a = link('', sourceHref(id), 'source-card');
         const row = el('span', undefined, 'source-top');
         row.append(el('span', source.title), el('span', source.url ? '↗' : '→'));
-        a.append(row, el('small', source.type + (source.date ? ' / ' + source.date : '') + (source.url ? ' / 公开原文' : ' / 脱敏整理 · 非原文')));
+        a.append(row, el('small', source.type + (source.date ? ' / ' + source.date : '') + (source.kind === 'public-transcript' ? ' / 公开作品转写' : source.url ? ' / 公开原文' : ' / 脱敏整理 · 非原文')));
         section.append(a);
       });
       return section;
