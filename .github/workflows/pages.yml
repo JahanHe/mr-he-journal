@@ -80,7 +80,14 @@ jobs:
             assert(Number.isFinite(Date.parse(edition.publication.approved_at)));
             keys(edition.sources, Object.keys(edition.sources));
             for (const source of Object.values(edition.sources)) {
-              keys(source, ['title', 'label', 'type', 'date', 'url', 'paragraphs', 'notice']);
+              const transcript = source.kind === 'public-transcript';
+              keys(source, ['title', 'label', 'type', 'date', 'url', 'paragraphs', 'notice', ...(transcript ? ['kind', 'author', 'collected_date', 'original_url'] : [])]);
+              if (transcript) {
+                assert(!source.url && source.paragraphs, 'Transcript needs reviewed text');
+                text(source.author); date(source.date); date(source.collected_date);
+                https(source.original_url); text(source.notice);
+                assert(/转写/.test(source.notice), 'Transcript needs its accuracy notice');
+              }
               text(source.title); text(source.label); text(source.type);
               if (source.date !== undefined) date(source.date);
               if (source.notice !== undefined) text(source.notice);
