@@ -10421,7 +10421,7 @@
         },
         "baldwin-2006": {
           "title": "Baldwin等｜开始与维持的预测因素（2006年9月）",
-         "label": "开始与维持追踪",
+          "label": "开始与维持追踪",
           "type": "作者上传期刊全文；纵向关联研究；ResearchGate可能限制访问",
           "url": "https://www.researchgate.net/publication/6781396_Specifying_the_Determinants_of_the_Initiation_and_Maintenance_of_Behavior_Change_An_Examination_of_Self-Efficacy_Satisfaction_and_Smoking_Cessation"
         },
@@ -10434,7 +10434,7 @@
         },
         "knee-1998": {
           "title": "Knee｜关系的命定与成长信念（1998年2月）",
-         "label": "关系信念研究",
+          "label": "关系信念研究",
           "type": "作者上传原论文PDF；问卷及纵向观察；ResearchGate可能限制访问",
           "url": "https://www.researchgate.net/profile/C-Knee/publication/232518767_Implicit_Theories_of_Relationships_Assessment_and_Prediction_of_Romantic_Relationship_Initiation_Coping_and_Longevity/links/02e7e5307b3fa4d9a3000000/Implicit-Theories-of-Relationships-Assessment-and-Prediction-of-Romantic-Relationship-Initiation-Coping-and-Longevity.pdf"
         },
@@ -12316,7 +12316,9 @@
     {
       "date": "2026-09-12",
       "review_date": "2026-09-11",
-      "yesterday": ["昨日新增三份收藏：两份来自同一场关系与成长访谈，另一份谈仿生机器人。它们是收录活动，不是三份独立证据，也不等于本人认同。"],
+      "yesterday": [
+        "昨日新增三份收藏：两份来自同一场关系与成长访谈，另一份谈仿生机器人。它们是收录活动，不是三份独立证据，也不等于本人认同。"
+      ],
       "title": "五个人都点头，未必是五份判断",
       "intro": [
         "昨天收藏的关系访谈，提出给自己找几位不同的顾问。机器人圆桌又问：一个总是赞同自己的对象，真的够好吗？两份材料碰到了同一个问题——别人的声音，究竟增加了什么。",
@@ -22992,16 +22994,14 @@
           "title": "济祯进步坊｜FDE一定要参加一次FDE黑客松 #FDE #AI #黑客松 #大学生",
           "url": "https://www.iesdouyin.com/share/video/7706183383755361572/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "b8": {
           "title": "济祯进步坊｜中源黑客松 这件事太有意义了#黑客松 #中源黑客松 #AI #郑州轻工业大学",
           "url": "https://www.iesdouyin.com/share/video/7705847182779338027/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "old01": {
@@ -23014,24 +23014,21 @@
           "title": "水球泡｜国产模型靠什么竞争，AI有需求为什么还会有泡沫 从 DeepSeek、小米 MiMo 和豆包聊起，看国产大模型靠什么建立长期优势。\n1、算力、人才和数据，最终要转化成模型能力和稳定的服务。\n2、硬件、内容平台和企业服务，给模型提供了不同的使用场景。能否形成生意，还要看用户会不会持续使用和付费。...",
           "url": "https://www.iesdouyin.com/share/video/7705838819873934655/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "b10": {
           "title": "冤种小徐｜隔壁求职帖现状 #大学生#找工作#求职#剧情#校招",
           "url": "https://www.iesdouyin.com/share/video/7706142174971230714/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "b4": {
           "title": "超哥超车｜粉丝连麦：小伙媳妇做生意亏本想买车，先想清楚怎么改进别消费 #超哥直播回放 #买车 #奥迪A4L #极狐T7 #亏钱",
           "url": "https://www.iesdouyin.com/share/video/7705989435766132002/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "old04": {
@@ -23044,16 +23041,14 @@
           "title": "超哥超车｜9月10月汽车销量暴跌！什么人买车什么人不买，一条视频告诉你 #超哥直播回放 #买车 #销量 #新能源汽车 #理性消费",
           "url": "https://www.iesdouyin.com/share/video/7706124921688050984/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "b12": {
           "title": "瓦斯讲故事｜没有这场戏，可能就没有影史经典的《教父》了！（教父精讲3） #了不起的精讲团",
           "url": "https://www.iesdouyin.com/share/video/7706097461047168296/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "old06": {
@@ -23066,16 +23061,14 @@
           "title": "瘦刘的健身杂谈｜鱼油购买指南-4个选购步骤 90%的人纯度会算错\n#干货满满超实用 #高品质鱼油 #鱼油",
           "url": "https://www.iesdouyin.com/share/video/7706042578336509945/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "b5": {
           "title": "瘦刘的健身杂谈｜超级干净的水煮鸡胸肉推荐 #鸡胸肉 #又香又无负担的减脂餐 #减脂美食 #鸡胸肉美食做法 #鸡胸肉正宗做法",
           "url": "https://www.iesdouyin.com/share/video/7706043036199792561/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "old08": {
@@ -23088,16 +23081,14 @@
           "title": "百控老师｜为什么真顶美对人的要求没那么高 ",
           "url": "https://www.iesdouyin.com/share/video/7706141598706437414/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         },
         "b0": {
           "title": "在无人区看超市｜说明他已经没牌了 #行为 #人格 #边界 #超超精神力 #超超精神力上等关系心法",
           "url": "https://www.iesdouyin.com/share/video/7706058576480963855/",
           "date": "2026-11-09",
-          "collected_date": "2026-11-10",
-          "type": "公开作品；依据GET保存文本整理，未观看原视频",
+          "type": "公开作品；依据GET保存文本整理，未观看原视频；GET收录于2026-11-10",
           "label": "原视频 ↗"
         }
       },
